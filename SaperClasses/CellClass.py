@@ -1,6 +1,4 @@
 from PyQt6.QtWidgets import QPushButton
-from PyQt6.QtCore import QObject
-# from BoardClasses import Board
 
 
 class Cell(QPushButton):
