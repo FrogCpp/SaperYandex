@@ -1,13 +1,13 @@
-import sys
 from PyQt6 import uic
-from PyQt6.QtWidgets import QApplication, QWidget, QPushButton
-import mainGame
+from PyQt6.QtWidgets import QWidget, QPushButton
+from SaperClasses.BoardClasses import Board
 
 
 class Minesweeper(QWidget):
-    def __init__(self):
+    def __init__(self, a: Board):
+        self.a = a
         super().__init__()
-        uic.loadUi("minesweeper.ui", self)
+        uic.loadUi("./frontEND/minesweeper.ui", self)
         self.board = {}
         self.init_ui()
 
@@ -17,11 +17,5 @@ class Minesweeper(QWidget):
                 self.board[i, j] = QPushButton(self.game_board)
                 self.board[i, j].setFixedSize(50, 50)
                 self.board[i, j].move(49 * i, 40 * j)
-                self.board[i, j].setText(str(mainGame.a.Board[i][j].__str__()["Mines"]))
+                self.board[i, j].setText(str(self.a.Board[i][j].__str__()["Mines"]))
 
-
-if __name__ == '__main__':
-    app = QApplication(sys.argv)
-    ex = Minesweeper()
-    ex.show()
-    sys.exit(app.exec())
