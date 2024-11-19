@@ -1,9 +1,10 @@
 from PyQt6.QtWidgets import QPushButton
 from PyQt6.QtCore import QObject
+from BoardClasses import Board
 
 
 class Cell(QPushButton):
-	def __init__(self, Position=(0, 0), brd):
+	def __init__(self, Position=(0, 0), brd : Board):
 		super().__init__()
 		self.Position = {'x': Position[0], 'y': Position[1]}
 		self.amIDangerous = False
