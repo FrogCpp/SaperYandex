@@ -14,9 +14,10 @@ class Board:
                 for i in range(-1, 2):
                     help = []
                     for j in range(-1, 2):
-                        try:
-                            help.append(self.Board[point.Position[0] + i][point.Position[1] + j])
-                        except Exception:
+                        if (point.Position['x'] + i < 0 or point.Position['x'] + i > With - 1 or point.Position['y'] + j < 0 or point.Position['y'] + j > Hight - 1):
                             help.append(None)
+                        else:
+                            help.append(point)
                     mass.append(help)
                 point.SetMyFriends(mass)
+        print('sucsess')
