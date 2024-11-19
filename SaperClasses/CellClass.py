@@ -3,13 +3,14 @@ from PyQt6.QtCore import QObject
 
 
 class Cell(QPushButton):
-	def __init__(self, Position=(0, 0)):
+	def __init__(self, Position=(0, 0), brd):
 		super().__init__()
 		self.Position = {'x': Position[0], 'y': Position[1]}
 		self.amIDangerous = False
 		self.MyFriends = []
 		self.nearMe = 0
 		self.Statuse = 'Close'
+		self.MyBoard = brd
 
 	def SetMyFriends(self, fr):
 		for line in fr:
@@ -26,6 +27,7 @@ class Cell(QPushButton):
 	def ClickIvent(self):
 		self.Statuse = 'Open'
 		if (self.amIDangerous):
+			self.MyBoard.game = False
 			return True
 		else:
 			if (self.nearMe > 0):
@@ -33,6 +35,7 @@ class Cell(QPushButton):
 			for i in self.MyFriends:
 				try:
 					if (i.ClickIvent):
+						self.MyBoard.game = False
 						return True
 				except Exception:
 					pass
