@@ -4,7 +4,7 @@ from BoardClasses import Board
 
 
 class Cell(QPushButton):
-	def __init__(self, Position=(0, 0), brd : Board):
+	def __init__(self, brd: Board, Position=(0, 0)):
 		super().__init__()
 		self.Position = {'x': Position[0], 'y': Position[1]}
 		self.amIDangerous = False

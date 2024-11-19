@@ -9,7 +9,7 @@ class Board:
         for i in range(With):
             help = []
             for j in range(Hight):
-                help.append(Cell(Position=(i, j), self))
+                help.append(Cell(self, Position=(i, j)))
             self.Board.append(help)
 
         for i in range(MineK):
