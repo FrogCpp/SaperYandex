@@ -36,4 +36,4 @@ class Cell:
         return False
 
     def __str__(self):
-        return '*' if self.amIDangerous else '_' if self.nearMe == 0 else self.nearMe
+        return {'Mines':'*' if self.amIDangerous else '_' if self.nearMe == 0 else self.nearMe, 'Status':self.Statuse}
