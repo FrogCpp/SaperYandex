@@ -1,9 +1,9 @@
 import random
 
 class Cell:
-    def __init__(self, Position=(0, 0), MineK=8):
+    def __init__(self, Position=(0, 0)):
         self.Position = {'x':Position[0], 'y':Position[1]}
-        self.amIDangerous = random.randint(0, 100) % MineK == 0
+        self.amIDangerous = False
         self.MyFriends = []
         self.nearMe = 0
         self.Statuse = 'Close'

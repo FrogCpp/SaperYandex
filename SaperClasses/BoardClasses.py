@@ -1,3 +1,5 @@
+import random
+
 from .CellClass import Cell
 
 class Board:
@@ -8,6 +10,15 @@ class Board:
             for j in range(Hight):
                 help.append(Cell(Position=(i, j, MineK)))
             self.Board.append(help)
+
+        for i in range(MineK):
+            x = random.randint(0, With - 1)
+            y = random.randint(0, Hight - 1)
+            while self.Board[x][y].amIDangerous:
+                x = random.randint(0, With-1)
+                y = random.randint(0, Hight-1)
+            self.Board[x][y].amIDangerous = True
+
         for lines in self.Board:
             for point in lines:
                 mass = []
