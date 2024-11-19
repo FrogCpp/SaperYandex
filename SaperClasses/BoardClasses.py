@@ -1,12 +1,12 @@
 from .CellClass import Cell
 
 class Board:
-    def __init__(self, With : int, Hight : int):
+    def __init__(self, With : int, Hight : int, MineK : int):
         self.Board = []
         for i in range(With):
             help = []
             for j in range(Hight):
-                help.append(Cell(Position=(i, j)))
+                help.append(Cell(Position=(i, j, MineK)))
             self.Board.append(help)
         for lines in self.Board:
             for point in lines:

@@ -10,11 +10,12 @@ class Cell:
 
     def SetMyFriends(self, fr):
         for line in fr:
+            help = []
             for point in line:
                 if (point != self):
-                    self.MyFriends.append(point)
+                    help.append(point)
                 else:
-                    self.MyFriends.append(None)
+                    help.append(None)
                 if (point is not None):
                     if (point.amIDangerous):
                         self.nearMe += 1
@@ -35,4 +36,4 @@ class Cell:
         return False
 
     def __str__(self):
-        return '*' if self.amIDangerous else ' ' if self.nearMe == 0 else self.nearMe
+        return '*' if self.amIDangerous else '_' if self.nearMe == 0 else self.nearMe
