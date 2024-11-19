@@ -33,3 +33,6 @@ class Cell:
                 except Exception:
                     pass
         return False
+
+    def __str__(self):
+        return '*' if self.amIDangerous else ' ' if self.nearMe == 0 else self.nearMe
