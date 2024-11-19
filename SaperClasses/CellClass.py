@@ -12,13 +12,11 @@ class Cell:
         for line in fr:
             help = []
             for point in line:
-                if (point != self):
-                    help.append(point)
-                else:
-                    help.append(None)
+                help.append(point)
                 if (point is not None):
                     if (point.amIDangerous):
                         self.nearMe += 1
+            self.MyFriends.append(help)
 
     def ClickIvent(self):
         self.Statuse = 'Open'
@@ -28,12 +26,14 @@ class Cell:
             if (self.nearMe > 0):
                 return False
             for i in self.MyFriends:
-                try:
-                    if (i.ClickIvent):
-                        return True
-                except Exception:
-                    pass
+                for j in i:
+                    try:
+                        if (j.ClickIvent):
+                            return True
+                    except Exception:
+                        pass
         return False
 
     def __str__(self):
-        return {'Mines':'*' if self.amIDangerous else '_' if self.nearMe == 0 else self.nearMe, 'Status':self.Statuse}
+        # return {'Mines':'*' if self.amIDangerous else '_' if self.nearMe == 0 else self.nearMe, 'Status':self.Statuse}
+        return '*' if self.amIDangerous else '0' if self.nearMe == 0 else self.nearMe
