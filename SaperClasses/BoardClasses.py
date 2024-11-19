@@ -5,6 +5,7 @@ from .CellClass import Cell
 class Board:
     def __init__(self, With : int, Hight : int, MineK : int):
         self.Board = []
+        self.game = True
         for i in range(With):
             help = []
             for j in range(Hight):
