@@ -23,3 +23,15 @@ class Board:
                     mass.append(help)
                 point.SetMyFriends(mass)
         print('sucsess')
+
+# for i in range(self.mine_amount):
+# 			a = (randint(0, self.size_x - 1), randint(0, self.size_y - 1))
+# 			if i == 0:
+# 				mines.append(a)
+# 			else:
+# 				if a in mines:
+# 					while a in mines:
+# 						a = (randint(0, self.size_x - 1), randint(0, self.size_y - 1))
+# 					mines.append(a)
+# 				else:
+# 					mines.append(a)
