@@ -9,7 +9,7 @@ class Board:
         for i in range(With):
             help = []
             for j in range(Hight):
-                help.append(Cell(self, Position=(i, j)))
+                help.append(Cell(self, position=(i, j)))
             self.Board.append(help)
 
         for i in range(MineK):
@@ -33,7 +33,7 @@ class Board:
                         else:
                             help.append(None)
                     mass.append(help)
-                point.SetMyFriends(mass)
+                point.setMyFriends(mass)
         print('sucsess')
 
 # for i in range(self.mine_amount):
