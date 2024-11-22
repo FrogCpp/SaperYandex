@@ -14,6 +14,7 @@ class Cell(QPushButton):
 		self.MyBoard = brd
 		self.flag = False
 		self.clicked.connect(self.ClickIvent)
+		self.setStyleSheet("border-image: url(Textures/MineSweeper_ModeliveskyCom/128x128/unknown_1_128x128.png);")
 
 	def setMyFriends(self, fr):
 		for line in fr:
@@ -30,13 +31,13 @@ class Cell(QPushButton):
 
 	def SetFlag(self):
 		self.flag = not self.flag
-		self.setText("<\b>F<\b>")
+		print('aboba')
 
 	def ClickIvent(self):
 		if QApplication.mouseButtons() & Qt.MouseButton.RightButton:
 			self.SetFlag()
 			return 0
-		self.setText(str(self.__str__()["Mines"]))
+		self.setStyleSheet(f"border-image: url({str(self.__str__()["Mines"] if not self.flag else self.__str__())});")
 		if self.Statuse != 'Close':
 			return False
 		self.Statuse = 'Open'
@@ -57,4 +58,4 @@ class Cell(QPushButton):
 		return False
 
 	def __str__(self):
-		return {'Mines': '' if self.amIDangerous else self.nearMe, 'Status': self.Statuse} if not self.flag else 'Im a flag'
+		return {'Mines': 'Textures/MineSweeper_ModeliveskyCom/64x64/bebebe.png' if self.amIDangerous else f"Textures/MineSweeper_ModeliveskyCom/64x64/{self.nearMe}.png" if self.nearMe != 0 else "Textures/MineSweeper_ModeliveskyCom/128x128/empty_128x128.png", 'Status': self.Statuse} if not self.flag else "Textures/MineSweeper_ModeliveskyCom/128x128/flat_1_128x128.png"
