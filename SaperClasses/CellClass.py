@@ -42,3 +42,4 @@ class Cell(QPushButton):
 
 	def __str__(self):
 		return {'Mines': '*' if self.amIDangerous else ' ' if self.nearMe == 0 else self.nearMe, 'Status': self.Statuse}
+# aboba
