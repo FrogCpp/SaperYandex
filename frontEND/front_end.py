@@ -1,6 +1,6 @@
 from PyQt6 import uic
 from PyQt6.QtWidgets import QMainWindow
-from Assets.SaperClasses.BoardClasses import Board
+from SaperClasses.BoardClasses import Board
 
 
 class Minesweeper(QMainWindow):

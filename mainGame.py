@@ -1,6 +1,6 @@
-from Assets.SaperClasses import Board
+from SaperClasses import Board
 import sys
-from Assets.frontEND.front_end import Minesweeper
+from frontEND.front_end import Minesweeper
 from PyQt6.QtWidgets import QApplication
 
 app = QApplication(sys.argv)
