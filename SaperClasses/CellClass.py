@@ -33,7 +33,6 @@ class Cell(QPushButton):
 		self.setText("<\b>F<\b>")
 
 	def ClickIvent(self):
-		print(QApplication.mouseButtons())
 		if QApplication.mouseButtons() & Qt.MouseButton.RightButton:
 			self.SetFlag()
 			return 0
@@ -58,4 +57,4 @@ class Cell(QPushButton):
 		return False
 
 	def __str__(self):
-		return {'Mines': '*' if self.amIDangerous else self.nearMe, 'Status': self.Statuse} if not self.flag else 'Im a flag'
+		return {'Mines': '' if self.amIDangerous else self.nearMe, 'Status': self.Statuse} if not self.flag else 'Im a flag'
