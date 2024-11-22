@@ -1,3 +1,4 @@
+from PyQt6.QtGui import QMouseEvent
 from PyQt6.QtWidgets import QPushButton, QApplication
 from PyQt6.uic.Compiler.qtproxies import QtCore
 from PyQt6.QtCore import Qt
@@ -13,7 +14,7 @@ class Cell(QPushButton):
 		self.Statuse = 'Close'
 		self.MyBoard = brd
 		self.flag = False
-		self.clicked.connect(self.ClickIvent)
+		# self.clicked.connect(self.ClickIvent)
 		self.setStyleSheet("border-image: url(Textures/MineSweeper_ModeliveskyCom/128x128/unknown_1_128x128.png);")
 
 	def setMyFriends(self, fr):
@@ -31,13 +32,18 @@ class Cell(QPushButton):
 
 	def SetFlag(self):
 		self.flag = not self.flag
-		print('aboba')
+		self.setStyleSheet(f"border-image: url({'Textures/MineSweeper_ModeliveskyCom/128x128/unknown_1_128x128.png' if not self.flag else self.__str__()});")
 
-	def ClickIvent(self):
-		if QApplication.mouseButtons() & Qt.MouseButton.RightButton:
+	def mouseReleaseEvent(self, event):
+		self.ClickIvent(event.button())
+
+	def ClickIvent(self, b = Qt.MouseButton.LeftButton):
+		if b == Qt.MouseButton.RightButton and self.Statuse == 'Close':
 			self.SetFlag()
 			return 0
-		self.setStyleSheet(f"border-image: url({str(self.__str__()["Mines"] if not self.flag else self.__str__())});")
+		if self.flag:
+			return 0
+		self.setStyleSheet(f"border-image: url({str(self.__str__()['Mines'] if not self.flag else self.__str__())});")
 		if self.Statuse != 'Close':
 			return False
 		self.Statuse = 'Open'
