@@ -1,9 +1,9 @@
 from PyQt6 import uic
-from PyQt6.QtWidgets import QWidget, QPushButton
+from PyQt6.QtWidgets import QWidget, QPushButton, QMainWindow
 from SaperClasses.BoardClasses import Board
 
 
-class Minesweeper(QWidget):
+class Minesweeper(QMainWindow):
     def __init__(self, a: Board):
         self.a = a
         super().__init__()
@@ -19,8 +19,15 @@ class Minesweeper(QWidget):
                 self.a.Board[i][j].setFixedSize(50, 50)
                 self.a.Board[i][j].move(49 * i, 40 * j)
                 # self.board[i, j].setText(str(self.a.Board[i][j].__str__()["Mines"]))
+
+    def disable_all(self):
+        for i in self.a.Board:
+            for j in i:
+                j.setDisabled(True)
+        self.statusBar().setStyleSheet("color: red")
+        self.statusBar().showMessage("YOU = LOH")
+
     def on_pushbuttons_clicked(self):
         for i in self.a.Board:
             for j in i:
                 j.clicked.connect(j.ClickIvent)
-
