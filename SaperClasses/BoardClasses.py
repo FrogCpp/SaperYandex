@@ -3,9 +3,9 @@ import random
 from .CellClass import Cell
 
 class Board:
-    def __init__(self, With : int, Hight : int, MineK : int):
+    def __init__(self, Dead_Func, With : int, Hight : int, MineK : int):
         self.Board = []
-        self.game = True
+        self.DeadF = Dead_Func
         for i in range(With):
             help = []
             for j in range(Hight):

@@ -26,9 +26,11 @@ class Cell(QPushButton):
 
 	def ClickIvent(self):
 		self.setText(str(self.__str__()["Mines"]))
+		if self.Statuse != 'Close':
+			return False
 		self.Statuse = 'Open'
 		if self.amIDangerous:
-			self.MyBoard.game = False
+			self.MyBoard.DeadF()
 			return True
 		else:
 			if self.nearMe > 0:
@@ -37,7 +39,7 @@ class Cell(QPushButton):
 				for j in i:
 					try:
 						if j.ClickIvent():
-							self.MyBoard.game = False
+							self.MyBoard.DeadF()
 							return True
 					except Exception:
 						pass
@@ -45,4 +47,3 @@ class Cell(QPushButton):
 
 	def __str__(self):
 		return {'Mines': '*' if self.amIDangerous else self.nearMe, 'Status': self.Statuse}
-# aboba
