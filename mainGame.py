@@ -8,5 +8,6 @@ app = QApplication(sys.argv)
 a = Board(10, 10, 20)
 
 ex = Minesweeper(a)
+a.DeadF = ex.disable_all
 ex.show()
 sys.exit(app.exec())
