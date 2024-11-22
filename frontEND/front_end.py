@@ -1,4 +1,5 @@
 from PyQt6 import uic
+from PyQt6.QtCore import Qt
 from PyQt6.QtWidgets import QWidget, QPushButton, QMainWindow
 from SaperClasses.BoardClasses import Board
 
@@ -7,7 +8,7 @@ class Minesweeper(QMainWindow):
     def __init__(self, a: Board):
         self.a = a
         super().__init__()
-        uic.loadUi("./frontEND/minesweeper.ui", self)
+        uic.loadUi("./frontEND/minesweeper2.ui", self)
         self.board = {}
         self.init_ui()
         self.on_pushbuttons_clicked()

@@ -27,6 +27,7 @@ class Cell(QPushButton):
 
 	def SetFlag(self):
 		self.flag = not self.flag
+		self.setText("<\b>F<\b>")
 
 	def ClickIvent(self):
 		self.setText(str(self.__str__()["Mines"]))
@@ -50,4 +51,4 @@ class Cell(QPushButton):
 		return False
 
 	def __str__(self):
-		return {'Mines': '*' if self.amIDangerous else self.nearMe, 'Status': self.Statuse} if self.flag else 'Im a flag'
+		return {'Mines': '*' if self.amIDangerous else self.nearMe, 'Status': self.Statuse} if not self.flag else 'Im a flag'
