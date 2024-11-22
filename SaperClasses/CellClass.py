@@ -22,6 +22,7 @@ class Cell(QPushButton):
 				if point is not None:
 					if point.amIDangerous:
 						self.nearMe += 1
+			self.MyFriends.append(help)
 
 	def ClickIvent(self):
 		self.setText(str(self.__str__()["Mines"]))
