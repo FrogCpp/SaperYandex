@@ -50,4 +50,4 @@ class Cell(QPushButton):
 		return False
 
 	def __str__(self):
-		return {'Mines': '*' if self.amIDangerous else self.nearMe, 'Status': self.Statuse} if self.flag else 'Im a flag'
+		return {'Mines': '*' if self.amIDangerous else self.nearMe, 'Status': self.Statuse} if not self.flag else 'Im a flag'
