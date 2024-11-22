@@ -24,6 +24,7 @@ class Cell(QPushButton):
 						self.nearMe += 1
 
 	def ClickIvent(self):
+		self.setText(str(self.__str__()["Mines"]))
 		self.Statuse = 'Open'
 		if self.amIDangerous:
 			self.MyBoard.game = False
