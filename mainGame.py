@@ -6,8 +6,9 @@ from PyQt6.QtWidgets import QApplication
 app = QApplication(sys.argv)
 
 a = Board(10, 10, 20)
+a.create()
 
 ex = Minesweeper(a)
-a.DeadF = ex.disable_all
+a.DeadF = ex.dis_or_en_able_all
 ex.show()
 sys.exit(app.exec())

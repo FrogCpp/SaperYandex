@@ -48,7 +48,7 @@ class Cell(QPushButton):
 			return False
 		self.Statuse = 'Open'
 		if self.amIDangerous:
-			self.MyBoard.DeadF()
+			self.MyBoard.DeadF(True)
 			return True
 		else:
 			if self.nearMe > 0:

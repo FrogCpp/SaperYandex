@@ -3,21 +3,26 @@ import random
 from .CellClass import Cell
 
 class Board:
-    def __init__(self, With : int, Hight : int, MineK : int):
+    def __init__(self, Width : int, Height : int, MineK : int):
         self.Board = []
         self.DeadF = 0
-        for i in range(With):
+        self.Width = Width
+        self.Height = Height
+        self.MineK = MineK
+
+    def create(self):
+        for i in range(self.Width):
             help = []
-            for j in range(Hight):
+            for j in range(self.Height):
                 help.append(Cell(self, position=(i, j)))
             self.Board.append(help)
 
-        for i in range(MineK):
-            x = random.randint(0, With - 1)
-            y = random.randint(0, Hight - 1)
+        for i in range(self.MineK):
+            x = random.randint(0, self.Width - 1)
+            y = random.randint(0, self.Height - 1)
             while self.Board[x][y].amIDangerous:
-                x = random.randint(0, With-1)
-                y = random.randint(0, Hight-1)
+                x = random.randint(0, self.Width-1)
+                y = random.randint(0, self.Height-1)
             self.Board[x][y].amIDangerous = True
 
         for lines in self.Board:
@@ -28,7 +33,7 @@ class Board:
                     for j in range(-1, 2):
                         x = point.Position['x'] + i
                         y = point.Position['y'] + j
-                        if 0 <= x < With and 0 <= y < Hight:
+                        if 0 <= x < self.Width and 0 <= y < self.Height:
                             help.append(self.Board[x][y])
                         else:
                             help.append(None)

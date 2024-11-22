@@ -1,6 +1,7 @@
 from PyQt6 import uic
+import sys
 from PyQt6.QtCore import Qt
-from PyQt6.QtWidgets import QWidget, QPushButton, QMainWindow
+from PyQt6.QtWidgets import QWidget, QPushButton, QMainWindow, QApplication
 from SaperClasses.BoardClasses import Board
 
 
@@ -11,6 +12,8 @@ class Minesweeper(QMainWindow):
         uic.loadUi("./frontEND/minesweeper2.ui", self)
         self.board = {}
         self.init_ui()
+        self.new_game_button.clicked.connect(self.new_game)
+        self.statusBar().setStyleSheet("color: red")
 
     def init_ui(self):
         for i in range(10):
@@ -20,9 +23,13 @@ class Minesweeper(QMainWindow):
                 self.a.Board[i][j].move(49 * i, 40 * j)
                 # self.board[i, j].setText(str(self.a.Board[i][j].__str__()["Mines"]))
 
-    def disable_all(self):
+    def dis_or_en_able_all(self, wtd: bool):
         for i in self.a.Board:
             for j in i:
-                j.setDisabled(True)
-        self.statusBar().setStyleSheet("color: red")
-        self.statusBar().showMessage("YOU = LOH")
+                if wtd == False:
+                    j.setStyleSheet("border-image: url(Textures/MineSweeper_ModeliveskyCom/128x128/unknown_1_128x128.png);")
+                j.setDisabled(wtd)
+        self.statusBar().showMessage("YOU = LOH" if wtd else "")
+
+    def new_game(self):
+        pass
