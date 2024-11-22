@@ -1,4 +1,6 @@
-from PyQt6.QtWidgets import QPushButton
+from PyQt6.QtWidgets import QPushButton, QApplication
+from PyQt6.uic.Compiler.qtproxies import QtCore
+from PyQt6.QtCore import Qt
 
 
 class Cell(QPushButton):
@@ -11,6 +13,7 @@ class Cell(QPushButton):
 		self.Statuse = 'Close'
 		self.MyBoard = brd
 		self.flag = False
+		self.clicked.connect(self.ClickIvent)
 
 	def setMyFriends(self, fr):
 		for line in fr:
@@ -30,6 +33,10 @@ class Cell(QPushButton):
 		self.setText("<\b>F<\b>")
 
 	def ClickIvent(self):
+		print(QApplication.mouseButtons())
+		if QApplication.mouseButtons() & Qt.MouseButton.RightButton:
+			self.SetFlag()
+			return 0
 		self.setText(str(self.__str__()["Mines"]))
 		if self.Statuse != 'Close':
 			return False

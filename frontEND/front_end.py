@@ -11,7 +11,6 @@ class Minesweeper(QMainWindow):
         uic.loadUi("./frontEND/minesweeper2.ui", self)
         self.board = {}
         self.init_ui()
-        self.on_pushbuttons_clicked()
 
     def init_ui(self):
         for i in range(10):
@@ -27,8 +26,3 @@ class Minesweeper(QMainWindow):
                 j.setDisabled(True)
         self.statusBar().setStyleSheet("color: red")
         self.statusBar().showMessage("YOU = LOH")
-
-    def on_pushbuttons_clicked(self):
-        for i in self.a.Board:
-            for j in i:
-                j.clicked.connect(j.ClickIvent)
