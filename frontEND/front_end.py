@@ -32,4 +32,4 @@ class Minesweeper(QMainWindow):
         self.statusBar().showMessage("YOU = LOH" if wtd else "")
 
     def new_game(self):
-        pass
+        self.dis_or_en_able_all(False)
