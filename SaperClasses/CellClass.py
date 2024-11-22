@@ -10,6 +10,7 @@ class Cell(QPushButton):
 		self.nearMe = 0
 		self.Statuse = 'Close'
 		self.MyBoard = brd
+		self.flag = False
 
 	def setMyFriends(self, fr):
 		for line in fr:
@@ -23,6 +24,9 @@ class Cell(QPushButton):
 					if point.amIDangerous:
 						self.nearMe += 1
 			self.MyFriends.append(help)
+
+	def SetFlag(self):
+		self.flag = not self.flag
 
 	def ClickIvent(self):
 		self.setText(str(self.__str__()["Mines"]))
@@ -46,4 +50,4 @@ class Cell(QPushButton):
 		return False
 
 	def __str__(self):
-		return {'Mines': '*' if self.amIDangerous else self.nearMe, 'Status': self.Statuse}
+		return {'Mines': '*' if self.amIDangerous else self.nearMe, 'Status': self.Statuse} if self.flag else 'Im a flag'
