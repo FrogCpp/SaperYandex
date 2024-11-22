@@ -1,3 +1,5 @@
+import random
+
 from PyQt6 import uic
 import sys
 from PyQt6.QtCore import Qt
@@ -27,9 +29,11 @@ class Minesweeper(QMainWindow):
         for i in self.a.Board:
             for j in i:
                 if wtd == False:
+                    j.Statuse = 'Close'
                     j.setStyleSheet("border-image: url(Textures/MineSweeper_ModeliveskyCom/128x128/unknown_1_128x128.png);")
                 j.setDisabled(wtd)
         self.statusBar().showMessage("YOU = LOH" if wtd else "")
 
     def new_game(self):
         self.dis_or_en_able_all(False)
+        self.a.MakeMines(random.randint(15, 20))

@@ -8,22 +8,13 @@ class Board:
         self.DeadF = 0
         self.Width = Width
         self.Height = Height
-        self.MineK = MineK
-
-    def create(self):
         for i in range(self.Width):
             help = []
             for j in range(self.Height):
                 help.append(Cell(self, position=(i, j)))
             self.Board.append(help)
 
-        for i in range(self.MineK):
-            x = random.randint(0, self.Width - 1)
-            y = random.randint(0, self.Height - 1)
-            while self.Board[x][y].amIDangerous:
-                x = random.randint(0, self.Width-1)
-                y = random.randint(0, self.Height-1)
-            self.Board[x][y].amIDangerous = True
+        self.MakeMines(MineK)
 
         for lines in self.Board:
             for point in lines:
@@ -39,3 +30,12 @@ class Board:
                             help.append(None)
                     mass.append(help)
                 point.setMyFriends(mass)
+
+    def MakeMines(self, MineK):
+        for i in range(MineK):
+            x = random.randint(0, self.Width - 1)
+            y = random.randint(0, self.Height - 1)
+            while self.Board[x][y].amIDangerous:
+                x = random.randint(0, self.Width - 1)
+                y = random.randint(0, self.Height - 1)
+            self.Board[x][y].amIDangerous = True
