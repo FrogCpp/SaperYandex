@@ -1,3 +1,5 @@
+import os.path
+
 from PyQt6 import uic
 from PyQt6.QtWidgets import QMainWindow
 from MainGame.SaperClasses.BoardClasses import Board
@@ -7,7 +9,8 @@ class Minesweeper(QMainWindow):
     def __init__(self, a: Board):
         self.a = a
         super().__init__()
-        uic.loadUi("../maingame/frontend/minesweeper2.ui", self)
+        self.Way = os.path.dirname(__file__)
+        uic.loadUi(f"{self.Way}/minesweeper2.ui", self)
         self.board = {}
         self.init_ui()
         self.new_game_button.clicked.connect(self.EndGame)

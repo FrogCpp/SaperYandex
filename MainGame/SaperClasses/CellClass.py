@@ -1,3 +1,5 @@
+import os.path
+
 from PyQt6.QtGui import QMouseEvent
 from PyQt6.QtWidgets import QPushButton, QApplication
 from PyQt6.uic.Compiler.qtproxies import QtCore
@@ -14,8 +16,8 @@ class Cell(QPushButton):
 		self.Statuse = 'Close'
 		self.MyBoard = brd
 		self.flag = False
-		# self.clicked.connect(self.ClickIvent)
-		self.setStyleSheet("border-image: url(../MainGame/Textures/MineSweeper_ModeliveskyCom/128x128/unknown_1_128x128.png);")
+		self.Way = '/'.join(os.path.split(os.path.dirname(__file__))[0].split('\\'))
+		self.setStyleSheet(f"border-image: url({self.Way}/Textures/MineSweeper_ModeliveskyCom/128x128/unknown_1_128x128.png);")
 
 	def setMyFriends(self, fr):
 		for line in fr:
@@ -32,7 +34,7 @@ class Cell(QPushButton):
 
 	def SetFlag(self):
 		self.flag = not self.flag
-		self.setStyleSheet(f"border-image: url({'../MainGame/Textures/MineSweeper_ModeliveskyCom/128x128/unknown_1_128x128.png' if not self.flag else self.__str__()});")
+		self.setStyleSheet(f"border-image: url({f'{self.Way}/Textures/MineSweeper_ModeliveskyCom/128x128/unknown_1_128x128.png' if not self.flag else self.__str__()});")
 
 	def mouseReleaseEvent(self, event):
 		self.ClickIvent(event.button())
@@ -64,4 +66,4 @@ class Cell(QPushButton):
 		return False
 
 	def __str__(self):
-		return {'Mines': '../MainGame/Textures/MineSweeper_ModeliveskyCom/128x128/bomb_exploded_128x128.png' if self.amIDangerous else f"../MainGame/Textures/MineSweeper_ModeliveskyCom/128x128/{self.nearMe}_128x128.png" if self.nearMe != 0 else "../MainGame/Textures/MineSweeper_ModeliveskyCom/128x128/empty_128x128.png", 'Status': self.Statuse} if not self.flag else "../MainGame/Textures/MineSweeper_ModeliveskyCom/128x128/flat_1_128x128.png"
+		return {'Mines': f'{self.Way}/Textures/MineSweeper_ModeliveskyCom/128x128/bomb_exploded_128x128.png' if self.amIDangerous else f"{self.Way}/Textures/MineSweeper_ModeliveskyCom/128x128/{self.nearMe}_128x128.png" if self.nearMe != 0 else f"{self.Way}/Textures/MineSweeper_ModeliveskyCom/128x128/empty_128x128.png", 'Status': self.Statuse} if not self.flag else f"{self.Way}/Textures/MineSweeper_ModeliveskyCom/128x128/flat_1_128x128.png"
