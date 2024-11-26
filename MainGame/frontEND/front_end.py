@@ -1,20 +1,16 @@
-import random
-
 from PyQt6 import uic
-import sys
-from PyQt6.QtCore import Qt
-from PyQt6.QtWidgets import QWidget, QPushButton, QMainWindow, QApplication
-from SaperClasses.BoardClasses import Board
+from PyQt6.QtWidgets import QMainWindow
+from MainGame.SaperClasses.BoardClasses import Board
 
 
 class Minesweeper(QMainWindow):
     def __init__(self, a: Board):
         self.a = a
         super().__init__()
-        uic.loadUi("./frontEND/minesweeper2.ui", self)
+        uic.loadUi("../maingame/frontend/minesweeper2.ui", self)
         self.board = {}
         self.init_ui()
-        self.new_game_button.clicked.connect(self.new_game)
+        self.new_game_button.clicked.connect(self.EndGame)
         self.statusBar().setStyleSheet("color: red")
 
     def init_ui(self):
@@ -34,6 +30,5 @@ class Minesweeper(QMainWindow):
                 j.setDisabled(wtd)
         self.statusBar().showMessage("YOU = LOH" if wtd else "")
 
-    def new_game(self):
-        self.dis_or_en_able_all(False)
-        self.a.MakeMines(random.randint(15, 20))
+    def EndGame(self):
+        self.close()

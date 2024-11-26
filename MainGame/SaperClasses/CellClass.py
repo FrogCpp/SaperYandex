@@ -15,7 +15,7 @@ class Cell(QPushButton):
 		self.MyBoard = brd
 		self.flag = False
 		# self.clicked.connect(self.ClickIvent)
-		self.setStyleSheet("border-image: url(Textures/MineSweeper_ModeliveskyCom/128x128/unknown_1_128x128.png);")
+		self.setStyleSheet("border-image: url(../MainGame/Textures/MineSweeper_ModeliveskyCom/128x128/unknown_1_128x128.png);")
 
 	def setMyFriends(self, fr):
 		for line in fr:
@@ -32,7 +32,7 @@ class Cell(QPushButton):
 
 	def SetFlag(self):
 		self.flag = not self.flag
-		self.setStyleSheet(f"border-image: url({'Textures/MineSweeper_ModeliveskyCom/128x128/unknown_1_128x128.png' if not self.flag else self.__str__()});")
+		self.setStyleSheet(f"border-image: url({'../MainGame/Textures/MineSweeper_ModeliveskyCom/128x128/unknown_1_128x128.png' if not self.flag else self.__str__()});")
 
 	def mouseReleaseEvent(self, event):
 		self.ClickIvent(event.button())
@@ -64,4 +64,4 @@ class Cell(QPushButton):
 		return False
 
 	def __str__(self):
-		return {'Mines': 'Textures/MineSweeper_ModeliveskyCom/64x64/bebebe.png' if self.amIDangerous else f"Textures/MineSweeper_ModeliveskyCom/64x64/{self.nearMe}.png" if self.nearMe != 0 else "Textures/MineSweeper_ModeliveskyCom/128x128/empty_128x128.png", 'Status': self.Statuse} if not self.flag else "Textures/MineSweeper_ModeliveskyCom/128x128/flat_1_128x128.png"
+		return {'Mines': '../MainGame/Textures/MineSweeper_ModeliveskyCom/128x128/bomb_exploded_128x128.png' if self.amIDangerous else f"../MainGame/Textures/MineSweeper_ModeliveskyCom/128x128/{self.nearMe}_128x128.png" if self.nearMe != 0 else "../MainGame/Textures/MineSweeper_ModeliveskyCom/128x128/empty_128x128.png", 'Status': self.Statuse} if not self.flag else "../MainGame/Textures/MineSweeper_ModeliveskyCom/128x128/flat_1_128x128.png"

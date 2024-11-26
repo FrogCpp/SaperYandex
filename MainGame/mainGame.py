@@ -1,8 +1,8 @@
 import random
 
-from SaperClasses import Board
+from MainGame.SaperClasses import Board
 import sys
-from frontEND.front_end import Minesweeper
+from MainGame.frontEND.front_end import Minesweeper
 from PyQt6.QtWidgets import QApplication
 
 app = QApplication(sys.argv)
