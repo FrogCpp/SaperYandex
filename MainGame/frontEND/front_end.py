@@ -9,7 +9,7 @@ class Minesweeper(QMainWindow):
     def __init__(self, a: Board):
         self.a = a
         super().__init__()
-        self.Way = os.path.dirname(__file__)
+        self.Way = '/'.join(os.path.dirname(__file__).split('\\'))
         uic.loadUi(f"{self.Way}/minesweeper2.ui", self)
         self.board = {}
         self.init_ui()
