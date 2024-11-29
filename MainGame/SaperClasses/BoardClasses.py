@@ -1,7 +1,10 @@
 import random
 import os
 
+from HubMenu.FrontEnd.MainWindow import MainWindowClass
+from Sql import SqlController
 from .CellClass import Cell
+from HubMenu.FrontEnd import MainWindow
 
 class Board:
     def __init__(self, Width : int, Height : int, MineK : int):
@@ -9,6 +12,7 @@ class Board:
         self.DeadF = 0
         self.Width = Width
         self.Height = Height
+        self.SC = SqlController()
         for i in range(self.Width):
             help = []
             for j in range(self.Height):
