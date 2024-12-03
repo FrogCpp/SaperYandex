@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>550</width>
-    <height>550</height>
+    <width>600</width>
+    <height>650</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -21,14 +21,14 @@
   </property>
   <property name="minimumSize">
    <size>
-    <width>550</width>
-    <height>550</height>
+    <width>600</width>
+    <height>650</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>550</width>
-    <height>550</height>
+    <width>600</width>
+    <height>650</height>
    </size>
   </property>
   <property name="baseSize">
@@ -40,9 +40,31 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">QMainWindow
+{
+	background-color: #516275;
+}</string>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
-    <item row="0" column="0">
+    <item row="2" column="0">
+     <spacer name="horizontalSpacer_3">
+      <property name="orientation">
+       <enum>Qt::Orientation::Horizontal</enum>
+      </property>
+      <property name="sizeType">
+       <enum>QSizePolicy::Policy::Minimum</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="1" column="1">
      <spacer name="horizontalSpacer">
       <property name="orientation">
        <enum>Qt::Orientation::Horizontal</enum>
@@ -55,21 +77,7 @@
       </property>
      </spacer>
     </item>
-    <item row="0" column="1">
-     <widget class="QPushButton" name="new_game_button">
-      <property name="maximumSize">
-       <size>
-        <width>70</width>
-        <height>70</height>
-       </size>
-      </property>
-      <property name="text">
-       <string>End
-Game</string>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="2">
+    <item row="1" column="3">
      <spacer name="horizontalSpacer_2">
       <property name="orientation">
        <enum>Qt::Orientation::Horizontal</enum>
@@ -82,7 +90,7 @@ Game</string>
       </property>
      </spacer>
     </item>
-    <item row="1" column="0" colspan="3">
+    <item row="2" column="1" rowspan="2" colspan="3">
      <widget class="QWidget" name="game_board" native="true">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
@@ -93,10 +101,72 @@ Game</string>
       <property name="maximumSize">
        <size>
         <width>520</width>
-        <height>480</height>
+        <height>520</height>
        </size>
       </property>
      </widget>
+    </item>
+    <item row="2" column="4">
+     <spacer name="horizontalSpacer_4">
+      <property name="orientation">
+       <enum>Qt::Orientation::Horizontal</enum>
+      </property>
+      <property name="sizeType">
+       <enum>QSizePolicy::Policy::Minimum</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="1" column="2">
+     <widget class="QPushButton" name="new_game_button">
+      <property name="minimumSize">
+       <size>
+        <width>70</width>
+        <height>50</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>70</width>
+        <height>70</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton
+{
+	background-color: #30305C;
+	border-radius: 7px;
+	outline-color: red;
+    	outline-style: dashed;
+     outline-width: 2px;
+}</string>
+      </property>
+      <property name="text">
+       <string>End
+Game</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="2">
+     <spacer name="verticalSpacer">
+      <property name="orientation">
+       <enum>Qt::Orientation::Vertical</enum>
+      </property>
+      <property name="sizeType">
+       <enum>QSizePolicy::Policy::Minimum</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>40</height>
+       </size>
+      </property>
+     </spacer>
     </item>
    </layout>
   </widget>
@@ -105,7 +175,7 @@ Game</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>550</width>
+     <width>600</width>
      <height>24</height>
     </rect>
    </property>
