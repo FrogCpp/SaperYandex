@@ -7,7 +7,7 @@ from PyQt6.QtWidgets import QApplication
 
 app = QApplication(sys.argv)
 
-a = Board(10, 10, random.randint(15, 20))
+a = Board(10, 10, random.randint(1, 2))
 
 ex = Minesweeper(a)
 a.DeadF = ex.dis_or_en_able_all
