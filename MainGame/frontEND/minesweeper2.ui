@@ -141,9 +141,6 @@
 {
 	background-color: #30305C;
 	border-radius: 7px;
-	outline-color: red;
-    	outline-style: dashed;
-     outline-width: 2px;
 }</string>
       </property>
       <property name="text">
