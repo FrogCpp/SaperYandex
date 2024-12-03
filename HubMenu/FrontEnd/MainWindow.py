@@ -17,13 +17,16 @@ class MainWindowClass(QMainWindow):
         st = lambda : subprocess.run(["python", f'{self.way}/MainGame/mainGame.py'])
         self.StartButton.clicked.connect(st)
         self.CS = SqlController()
-        ab = self.CS.drawTable(True)
-        print(ab)
         self.first_v = [0, 0]
         self.second_v = [0, 0]
         self.ferd_v = [0, 0]
+        self.Refresh()
 
     def Refresh(self):
+        ab = list(sorted(map(lambda x: (int(x[1]), int(x[2])), self.CS.drawTable(True)['bestTime'])))
+        self.first_v = ab[0]
+        self.second_v = ab[1]
+        self.ferd_v = ab[2]
         self.first.setText(f"1:\ntime:{self.first_v[0]}, Date:{self.first_v[1]}")
-        self.second.setText(f"1:\ntime:{self.second_v[0]}, Date:{self.second_v[1]}")
-        self.ferd.setText(f"1:\ntime:{self.ferd_v[0]}, Date:{self.ferd_v[1]}")
+        self.second.setText(f"2:\ntime:{self.second_v[0]}, Date:{self.second_v[1]}")
+        self.ferd.setText(f"3:\ntime:{self.ferd_v[0]}, Date:{self.ferd_v[1]}")
