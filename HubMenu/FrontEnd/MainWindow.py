@@ -23,7 +23,7 @@ class MainWindowClass(QMainWindow):
         self.Refresh()
 
     def Refresh(self):
-        ab = list(sorted(map(lambda x: (int(x[1]), int(x[2])), self.CS.drawTable(True)['bestTime'])))
+        ab = list(sorted(map(lambda x: (int(x[1]), x[2]), self.CS.drawTable(True)['bestTime'])))
         self.first_v = ab[0]
         self.second_v = ab[1]
         self.ferd_v = ab[2]
