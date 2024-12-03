@@ -69,16 +69,12 @@
         <height>16777215</height>
        </size>
       </property>
-      <property name="font">
-       <font>
-        <pointsize>34</pointsize>
-       </font>
-      </property>
       <property name="styleSheet">
        <string notr="true">QPushButton
 {
 	background-color: #30305C;
 	border-radius: 10px;
+	font-size: 25px;
 }</string>
       </property>
       <property name="text">
