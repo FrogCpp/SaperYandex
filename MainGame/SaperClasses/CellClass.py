@@ -67,4 +67,4 @@ class Cell(QPushButton):
 		return False
 
 	def __str__(self):
-		return {'Mines': f'{self.Way}/Textures/single-files/minesweeper_05.png' if self.amIDangerous else f"{self.Way}/Textures/single-files/minesweeper_0{self.nearMe + 7}.png" if self.nearMe != 0 else f"{self.Way}/Textures/single-files/minesweeper_01.png", 'Status': self.Statuse} if not self.flag else f"{self.Way}/Textures/single-files/minesweeper_02.png"
+		return {'Mines': f'{self.Way}/Textures/single-files/minesweeper_05.png' if self.amIDangerous else f"{self.Way}/Textures/single-files/minesweeper_{self.nearMe + 7 if self.nearMe + 7 > 9 else f'0{self.nearMe + 7}'}.png" if self.nearMe != 0 else f"{self.Way}/Textures/single-files/minesweeper_01.png", 'Status': self.Statuse} if not self.flag else f"{self.Way}/Textures/single-files/minesweeper_02.png"
