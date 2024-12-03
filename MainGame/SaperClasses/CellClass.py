@@ -38,6 +38,7 @@ class Cell(QPushButton):
 
 	def mouseReleaseEvent(self, event):
 		self.ClickIvent(event.button())
+		self.MyBoard.CheckWin()
 
 	def ClickIvent(self, b = Qt.MouseButton.LeftButton):
 		if b == Qt.MouseButton.RightButton and self.Statuse == 'Close':

@@ -31,6 +31,9 @@
     <property name="text">
      <string>welcome to &quot;Sapper&quot;</string>
     </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
    </widget>
    <widget class="QPushButton" name="StartButton">
     <property name="geometry">
@@ -50,14 +53,67 @@
      <string>Start Game</string>
     </property>
    </widget>
-   <widget class="QTableView" name="tableView">
+   <widget class="QLineEdit" name="first">
     <property name="geometry">
      <rect>
-      <x>350</x>
-      <y>10</y>
-      <width>731</width>
-      <height>481</height>
+      <x>540</x>
+      <y>30</y>
+      <width>341</width>
+      <height>111</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>27</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>welcome to &quot;Sapper&quot;</string>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="second">
+    <property name="geometry">
+     <rect>
+      <x>540</x>
+      <y>140</y>
+      <width>341</width>
+      <height>111</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>27</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>welcome to &quot;Sapper&quot;</string>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="ferd">
+    <property name="geometry">
+     <rect>
+      <x>540</x>
+      <y>250</y>
+      <width>341</width>
+      <height>111</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>27</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>welcome to &quot;Sapper&quot;</string>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
     </property>
    </widget>
   </widget>

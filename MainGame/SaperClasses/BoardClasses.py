@@ -1,5 +1,6 @@
 import random
 import os
+import time
 
 from HubMenu.FrontEnd.MainWindow import MainWindowClass
 from Sql import SqlController
@@ -8,6 +9,7 @@ from HubMenu.FrontEnd import MainWindow
 
 class Board:
     def __init__(self, Width : int, Height : int, MineK : int):
+        self.startTime = time.time()
         self.Board = []
         self.DeadF = 0
         self.Width = Width
@@ -44,3 +46,15 @@ class Board:
                 x = random.randint(0, self.Width - 1)
                 y = random.randint(0, self.Height - 1)
             self.Board[x][y].amIDangerous = True
+
+    def CheckWin(self):
+        a = self.Width * self.Height
+        for line in self.Board:
+            for point in line:
+                if point.amIDangerous and point.flag:
+                    a -= 1
+                elif not point.amIDangerous and point.Statuse != "Close":
+                    a -= 1
+        if a == 0:
+            self.DeadF(False)
+            self.SC.Add(time.time() - self.startTime)

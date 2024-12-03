@@ -24,14 +24,11 @@ class Minesweeper(QMainWindow):
                 self.a.Board[i][j].move(49 * i, 40 * j)
                 # self.board[i, j].setText(str(self.a.Board[i][j].__str__()["Mines"]))
 
-    def dis_or_en_able_all(self, wtd: bool):
+    def dis_or_en_able_all(self, wtd = True):
         for i in self.a.Board:
             for j in i:
-                if wtd == False:
-                    j.Statuse = 'Close'
-                    j.setStyleSheet("border-image: url(Textures/MineSweeper_ModeliveskyCom/128x128/unknown_1_128x128.png);")
-                j.setDisabled(wtd)
-        self.statusBar().showMessage("YOU = LOH" if wtd else "")
+                j.setDisabled(True)
+        self.statusBar().showMessage("YOU = LOH" if wtd else "U VIN")
 
     def EndGame(self):
         self.close()
