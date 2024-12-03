@@ -24,9 +24,13 @@ class MainWindowClass(QMainWindow):
 
     def Refresh(self):
         ab = list(sorted(map(lambda x: (int(x[1]), x[2]), self.CS.drawTable(True)['bestTime'])))
-        self.first_v = ab[0]
-        self.second_v = ab[1]
-        self.ferd_v = ab[2]
+        self.first_v = ab[0] if len(ab) > 0 else ['None', 'None']
+        self.second_v = ab[1] if len(ab) > 1 else ['None', 'None']
+        self.ferd_v = ab[2] if len(ab) > 2 else ['None', 'None']
         self.first.setText(f"1:\ntime:{self.first_v[0]}, Date:{self.first_v[1]}")
         self.second.setText(f"2:\ntime:{self.second_v[0]}, Date:{self.second_v[1]}")
         self.ferd.setText(f"3:\ntime:{self.ferd_v[0]}, Date:{self.ferd_v[1]}")
+
+        ab =list(sorted(map(lambda x: (int(x[1]), x[2], x[0]), self.CS.drawTable(True)['bestTime'])))
+        for i in ab[3:]:
+            self.CS.Delet(i[2])
