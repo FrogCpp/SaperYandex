@@ -21,7 +21,7 @@ class Minesweeper(QMainWindow):
             for j in range(10):
                 self.a.Board[i][j].setParent(self.game_board)
                 self.a.Board[i][j].setFixedSize(50, 50)
-                self.a.Board[i][j].move(49 * i, 40 * j)
+                self.a.Board[i][j].move(50 * i, 50 * j)
                 # self.board[i, j].setText(str(self.a.Board[i][j].__str__()["Mines"]))
 
     def dis_or_en_able_all(self, wtd = True):
