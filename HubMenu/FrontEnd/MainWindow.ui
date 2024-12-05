@@ -145,6 +145,14 @@
           <pointsize>18</pointsize>
          </font>
         </property>
+        <property name="styleSheet">
+         <string notr="true">QLIneEdit
+{
+	background-color:  #30305C;
+	border-radius: 5px;
+}
+</string>
+        </property>
         <property name="text">
          <string>welcome to &quot;Sapper&quot;</string>
         </property>
@@ -159,6 +167,14 @@
          <font>
           <pointsize>18</pointsize>
          </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLIneEdit
+{
+	background-color:  #30305C;
+	border-radius: 5px;
+}
+</string>
         </property>
         <property name="text">
          <string>welcome to &quot;Sapper&quot;</string>
@@ -175,6 +191,14 @@
           <pointsize>18</pointsize>
          </font>
         </property>
+        <property name="styleSheet">
+         <string notr="true">QLIneEdit
+{
+	background-color:  #30305C;
+	border-radius: 5px;
+}
+</string>
+        </property>
         <property name="text">
          <string>welcome to &quot;Sapper&quot;</string>
         </property>
@@ -186,6 +210,14 @@
          <font>
           <pointsize>18</pointsize>
          </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLIneEdit
+{
+	background-color:  #30305C;
+	border-radius: 5px;
+}
+</string>
         </property>
         <property name="text">
          <string>welcome to &quot;Sapper&quot;</string>
