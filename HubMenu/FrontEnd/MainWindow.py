@@ -1,6 +1,8 @@
 from PyQt6 import uic
 from PyQt6.QtSql import QSqlDatabase, QSqlTableModel
 from PyQt6.QtWidgets import QMainWindow
+from PyQt6.QtWidgets import QSizePolicy
+
 import subprocess
 import os
 
@@ -10,11 +12,15 @@ from Sql import SqlController
 class MainWindowClass(QMainWindow):
     def __init__(self):
         super().__init__()
+        self.setWindowTitle("Sapper, Yandex!!!")
+        self.setSizePolicy(QSizePolicy.Policy.Fixed, QSizePolicy.Policy.Fixed)
+        self.setFixedSize(500, 300)
+        self.setMaximumSize(500, 300)
         a = '/'.join(os.path.dirname(__file__).split('\\'))
         uic.loadUi(f"{a}/MainWindow.ui", self)
-        sp = lambda x : os.path.split(x)[0]
+        sp = lambda x: os.path.split(x)[0]
         self.way = '/'.join(sp(sp(os.path.dirname(__file__))).split('\\'))
-        st = lambda : subprocess.run(["python", f'{self.way}/MainGame/mainGame.py'])
+        st = lambda: subprocess.run(["python3", f'{self.way}/MainGame/mainGame.py'])
         self.StartButton.clicked.connect(st)
         self.CS = SqlController()
         self.first_v = [0, 0]
@@ -37,6 +43,6 @@ class MainWindowClass(QMainWindow):
         self.forth.setText(f"4:\ntime:{self.forth_v[0]}, Date:{self.forth_v[1]}")
         self.fifth.setText(f"5:\ntime:{self.fifth_v[0]}, Date:{self.fifth_v[1]}")
 
-        ab =list(sorted(map(lambda x: (int(x[1]), x[2], x[0]), self.CS.drawTable(True)['bestTime'])))
+        ab = list(sorted(map(lambda x: (int(x[1]), x[2], x[0]), self.CS.drawTable(True)['bestTime'])))
         for i in ab[5:]:
             self.CS.Delet(i[2])
