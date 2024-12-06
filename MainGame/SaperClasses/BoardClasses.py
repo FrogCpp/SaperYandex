@@ -1,14 +1,12 @@
 import random
-import os
 import time
 
-from HubMenu.FrontEnd.MainWindow import MainWindowClass
 from Sql import SqlController
 from .CellClass import Cell
-from HubMenu.FrontEnd import MainWindow
+
 
 class Board:
-    def __init__(self, Width : int, Height : int, MineK : int):
+    def __init__(self, Width: int, Height: int, MineK: int):
         self.startTime = time.time()
         self.Board = []
         self.DeadF = 0

@@ -5,8 +5,10 @@ from PyQt6 import QtCore
 
 app = QApplication(sys.argv)
 
+
 def update():
     ex.Refresh()
+
 
 timer = QtCore.QTimer()
 timer.timeout.connect(update)
