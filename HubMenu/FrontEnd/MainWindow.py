@@ -43,7 +43,6 @@ class MainWindowClass(QMainWindow):
         self.forth.setText(f"4:\ntime:{self.forth_v[0]} s, {self.forth_v[1]}")
         self.fifth.setText(f"5:\ntime:{self.fifth_v[0]} s, {self.fifth_v[1]}")
 
-        self.CS.drawTable()
 
         ab = list(sorted(map(lambda x: (int(x[1]), x[2], x[0]), self.CS.drawTable(True)['bestTime'])))
         for i in ab[5:]:
