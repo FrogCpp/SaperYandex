@@ -67,6 +67,15 @@
 {
 	background-color: #30305C;
 	border-radius: 7px;
+	font-size: 18px;
+}
+QPushButton::pressed
+{
+	background-color: #303030;
+}
+QPushButton::released
+{
+	background-color: #30305C;
 }</string>
       </property>
       <property name="text">

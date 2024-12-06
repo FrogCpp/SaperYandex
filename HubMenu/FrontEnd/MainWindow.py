@@ -12,6 +12,11 @@ from Sql import SqlController
 class MainWindowClass(QMainWindow):
     def __init__(self):
         super().__init__()
+        self.game_width = self.widthBox.value
+        self.game_height = self.heightBox.value
+        self.game_mines = self.mineBox.value
+        with open("prop.txt", 'w') as file:
+            file.write(' '.join([self.game_width, self.game_height, self.game_mines]))
         self.setWindowTitle("Sapper, Yandex!!!")
         self.setSizePolicy(QSizePolicy.Policy.Fixed, QSizePolicy.Policy.Fixed)
         self.setFixedSize(500, 300)
@@ -20,7 +25,7 @@ class MainWindowClass(QMainWindow):
         uic.loadUi(f"{a}/MainWindow.ui", self)
         sp = lambda x: os.path.split(x)[0]
         self.way = '/'.join(sp(sp(os.path.dirname(__file__))).split('\\'))
-        st = lambda: subprocess.run(["python", f'{self.way}/MainGame/mainGame.py'])
+        st = lambda: subprocess.run(["python3", f'{self.way}/MainGame/mainGame.py'])
         self.StartButton.clicked.connect(st)
         self.CS = SqlController()
         self.first_v = [0, 0]
