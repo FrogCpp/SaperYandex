@@ -5,6 +5,7 @@ from PyQt6.QtWidgets import QSizePolicy
 
 import subprocess
 import os
+import platform
 
 from Sql import SqlController
 
@@ -38,7 +39,10 @@ class MainWindowClass(QMainWindow):
         self.game_mines = self.mineBox.value()
         with open("prop.txt", 'w') as file:
             file.write(' '.join([str(el) for el in [self.game_width, self.game_height, self.game_mines]]))
-        subprocess.run(["python3", f'{self.way}/MainGame/mainGame.py'])
+        if platform.system():
+            subprocess.run(["python", f'{self.way}/MainGame/mainGame.py'])
+        else:
+            subprocess.run(["python3", f'{self.way}/MainGame/mainGame.py'])
 
     def splt(self, x):
         return os.path.split(x)[0]
