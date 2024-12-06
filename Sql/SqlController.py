@@ -25,7 +25,7 @@ class SqlController:
         return mass
 
     def Add(self, timee : float):
-        sql = f"""INSERT INTO bestTime (time, date) VALUES ({timee}, '{datetime.now().strftime('%d.%m.%Y')}')"""
+        sql = f"""INSERT INTO bestTime (time, date) VALUES ({round(timee, 3)}, '{datetime.now().strftime('%d.%m.%Y')}')"""
         self.cur.execute(sql)
         self.con.commit()
 
