@@ -1,4 +1,4 @@
-from MainGame.SaperClasses import Board
+from SaperClasses import Board
 import sys
 from MainGame.frontEND.front_end import Minesweeper
 from PyQt6.QtWidgets import QApplication
