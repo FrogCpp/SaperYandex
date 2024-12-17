@@ -55,4 +55,10 @@ class Board:
                     a -= 1
         if a == 0:
             self.DeadF(False)
-            self.SC.Add(time.time() - self.startTime)
+            a = False
+            for i in self.SC.drawTable(True)['bestTime']:
+                if i[1] - (time.time() - self.startTime) < 0.5:
+                    self.SC.Change(i[0], time.time() - self.startTime)
+                    a = True
+                    break
+            if a: self.SC.Add(time.time() - self.startTime)

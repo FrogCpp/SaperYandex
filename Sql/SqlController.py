@@ -33,3 +33,8 @@ class SqlController:
         sql = f"""DELETE FROM bestTime WHERE ID = {ID}"""
         self.cur.execute(sql)
         self.con.commit()
+
+    def Change(self, ID, value):
+        sql = f"""UPDATE bestTime SET time = {value} WHERE id = {ID}"""
+        self.cur.execute(sql)
+        self.con.commit()
