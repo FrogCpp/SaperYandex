@@ -6,6 +6,7 @@ from PyQt6.QtWidgets import QFileDialog
 
 import subprocess
 import os
+import platform
 
 from Sql import SqlController
 
@@ -41,7 +42,10 @@ class MainWindowClass(QMainWindow):
         self.Refresh()
 
     def start_game(self):
-        subprocess.run(["python3", f'{self.way}/MainGame/mainGame.py'])
+        if platform.system():
+            subprocess.run(["python", f'{self.way}/MainGame/mainGame.py'])
+        else:
+            subprocess.run(["python3", f'{self.way}/MainGame/mainGame.py'])
 
     def save_conf(self):
         save_file = QFileDialog.getSaveFileName(self, "Save properties file")
