@@ -15,7 +15,8 @@ class Minesweeper(QMainWindow):
         self.board = {}
         self.init_ui(a)
         self.new_game_button.clicked.connect(self.close)
-        self.statusBar().setStyleSheet("color: red")
+        self.statusBar().setStyleSheet("color: red;")
+        self.game_board.setStyleSheet("border-color: black;\nborder-width: 2px;")
 
     def init_ui(self, a: Board):
         for i in range(a.Width):
