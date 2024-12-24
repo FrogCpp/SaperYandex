@@ -25,9 +25,16 @@ class SqlController:
         return mass
 
     def Add(self, timee : float):
-        sql = f"""INSERT INTO bestTime (time, date) VALUES ({round(timee, 3)}, '{datetime.now().strftime('%d.%m.%Y')}')"""
-        self.cur.execute(sql)
-        self.con.commit()
+        a = True
+        for i in self.SC.drawTable(True)['bestTime']:
+            if i[2] == datetime.now().strftime('%d.%m.%Y'):
+                self.Change(i[0], time.time() - self.startTime)
+                a = False
+                break
+        if a:
+            sql = f"""INSERT INTO bestTime (time, date) VALUES ({round(timee, 3)}, '{datetime.now().strftime('%d.%m.%Y')}')"""
+            self.cur.execute(sql)
+            self.con.commit()
 
     def Delet(self, ID):
         sql = f"""DELETE FROM bestTime WHERE ID = {ID}"""
