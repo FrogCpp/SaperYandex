@@ -5,7 +5,11 @@ class SqlController:
     def __init__(self):
         self.con = sqlite3.connect("TimeDataBase")
         self.cur = self.con.cursor()
-        self.cur.execute("""CREATE TABLE IF NOT EXISTS bestTime (ID INTEGER PRIMARY KEY, time REAL, date TEXT)""")
+        comm1 = """CREATE TABLE IF NOT EXISTS bestTime (ID INTEGER PRIMARY KEY, time REAL, date TEXT)"""
+        comm2 = """CREATE TABLE IF NOT EXISTS bestTimeAll (ID INTEGER PRIMARY KEY, time REAL, date TEXT)"""
+        self.cur.execute(comm1)
+        self.con.commit()
+        self.cur.execute(comm2)
         self.con.commit()
 
     def end(self):
@@ -26,14 +30,17 @@ class SqlController:
 
     def Add(self, timee : float):
         a = True
-        for i in self.SC.drawTable(True)['bestTime']:
+        for i in self.drawTable(True)['bestTime']:
             if i[2] == datetime.now().strftime('%d.%m.%Y'):
                 self.Change(i[0], time.time() - self.startTime)
                 a = False
                 break
         if a:
             sql = f"""INSERT INTO bestTime (time, date) VALUES ({round(timee, 3)}, '{datetime.now().strftime('%d.%m.%Y')}')"""
+            sql1 = f"""INSERT INTO bestTimeAll (time, date) VALUES ({round(timee, 3)}, '{datetime.now().strftime('%d.%m.%Y')}')"""
             self.cur.execute(sql)
+            self.con.commit()
+            self.cur.execute(sql1)
             self.con.commit()
 
     def Delet(self, ID):
